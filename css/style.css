@@ -75,7 +75,7 @@ ul li a[href="#home"]{
 ul  button {
     width: 200px;
     background-color: var(--primary);
-    
+    cursor: pointer;
     text-align: center;
     border: none;
     height: 50px;
@@ -132,6 +132,7 @@ button a:hover {
     border-radius: 10px;
     border: 1px solid var(--muted);
     font-size: 15px;
+    cursor: pointer;
 }
 .wel-left .start button a {
     color: var(--muted);
@@ -142,6 +143,7 @@ button a:hover {
     border: none;
     border-radius: 10px;
     font-size: 15px;
+    cursor: pointer;
 }
 .wel-left .start button[id="get-start"] a{
     color: var(--white);
@@ -290,14 +292,13 @@ button a:hover {
     left:22%;
 }
 .special .sp-purpose{
-    margin-top: 80px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 90px;
+    gap: 70px;
     border-left: 1px solid var(--silver);
-    width: 91%;
-    margin: 4% 50px 6% 50px;
+    width: 90%;
+    margin: 4% 40px 6% 40px;
     align-items: stretch;
 }
 .sp-purpose .sp-column {
@@ -305,8 +306,6 @@ button a:hover {
     flex-direction: column;
     background-color: var(--silver);
     place-items: center;
-    /* width: 300px;
-    height: 300px; */
     border-radius: 15px;
     padding: 20px;
 }
@@ -360,6 +359,7 @@ button a:hover {
     border: 1px solid currentColor;
     border-radius: 25px;
     font-size: 20px;
+    cursor: pointer;
 }
 /*history*/
 .history {
@@ -518,6 +518,7 @@ button a:hover {
     border-radius: 7px;
     margin-top: 20px;
     font-size: 17px;
+    cursor: pointer;
 }
 /*ABOUT US*/
 .about {
@@ -727,6 +728,7 @@ button a:hover {
     margin: 20px 0px;
     border-radius: 10px;
     font-size: 16px;
+    cursor: pointer;
 }
 /*NEWSLETTER*/
 .letter {
@@ -759,13 +761,15 @@ button a:hover {
 #subscribe input {
     width: 250px;
     height: 40px;
-    border-radius: 10px;
+    border-radius: 4px;
     padding: 5px 15px;
     font-size: 15px;
     border: none;
+    background :rgba(--silver, 0.33);
+    color: var(--white);
 }
 #subscribe input::placeholder {
-    color: var(--m);
+    color: var(--muted);
     letter-spacing: 1px;
 }
 #subscribe button {
@@ -775,6 +779,7 @@ button a:hover {
     padding: 5px 15px;
     font-size: 15px;
     border: none;
+    cursor: pointer;
 }
 #subscribe button:hover {
     background-color: var(--yellow);
