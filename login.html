@@ -7,6 +7,47 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+    <section class="container">
+        <header class="header">
+            <img src="images/Logo.png" alt="Logo du cabinet">
+            <div class="call">
+                <span><ion-icon name="call"></ion-icon> Call : </span> 
+                <p><a href="#">+00 22 34 273 9218</a></p>
+            </div>
+        </header>
+
+        <section class="login">
+            <div class="log-left">
+                <h1>Log <span>In</span></h1>
+                <form action="#" class="connect">
+                    <label for="full">Name</label>
+                    <input type="text" name="nom" id="full" placeholder="Full name" required/>
+                    <label for="mail">Email</label>
+                    <input type="email" name="mail" id="mail" placeholder="Mail address" required/>
+                    <label for="key">Password</label>
+                    <input type="password" name="passkey" id="key" maxlength="8" placeholder="********">
+                    <button type="button">Login</button>
+                    <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+                </form>
+            </div>
+            <div class="log-right">
+                <div>
+                    <img src="images/Logo.png" alt="logo">
+                    <p>Dentics is a well-known name in dental and oral care in New York. 
+                        The journey of this institution started in 1990 under the hands of 
+                        Dr. Jonathon Doe, Gold Medalist of Harvard University. Dentics 
+                        dental center has been leading the way in dental treatment in USA 
+                        for more than 30 years in keeping with the evolution of time and 
+                        the modernization of the era.</p>
+                    <div class="button">
+                        <a href="index.html"><ion-icon name="home"></ion-icon> Home</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
