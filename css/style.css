@@ -32,6 +32,7 @@ body {
     font-family: "Inter", sans-serif;
     background-color: var(--white);
     margin: 5px;
+    position: relative;
 }
 .welcome {
     display: flex;
@@ -43,88 +44,137 @@ header.header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    place-items: center;
-    height: 70px;
+    height: 100px;
     max-width: 100%;
-    width: 86%;
-    align-items: center;
-    margin: 20px 90px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: var(--white);
 }
 header.header::after {
     position: absolute;
     content: "";
-    width: 99%;
+    width: 100%;
     padding: 2px;
     background-color: var(--silver2);
-    margin-top: 105px;
-    left: 5px;
+    margin-top: 100px;
+    left: 0;
+    z-index: 1;
 }
 header.header img {
     max-width: 20%;
     width: 180px;
+    margin-left: 90px;
 }
-nav.menu ul{
+.header div {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    list-style: none;
-    width: 600px;
-    font-size: 15px;
-    font-weight: 500;
 }
-ul li a {
-    text-decoration: none;
-    color: var(--muted);
-}
-ul li a[href="index.html"]{
-    color: var(--primary);
-}
-ul  button {
-    width: 120px;
-    background-color: var(--primary);
+.header div .toggle {
+    display: flex;
+    position: relative;
+    width: 20px;
+    height: 2px;
+    background-color: var(--defaultLinkColor);
     cursor: pointer;
-    text-align: center;
-    border: none;
-    height: 45px;
-    font-size: 15px;
-    font-family: "Inter", sans-serif;
-    border-radius: 8px;
-    font-weight: 500;
+    z-index: 3;
 }
-ul button a {
-    color: var(--white);
+.toggle::after, 
+.toggle::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: var(--defaultLinkColor);
+    width: 30px;
+    cursor: pointer;
+    z-index: 3;
+    left: -10px;
 }
-ul button :hover {
-    background-color: var(--muted);
-    transition-duration: 0,2s;
+.toggle::after {
+    top: 7px;
 }
-button a:hover {
-    background: none;
-    color: var(--white);
+.toggle::before {
+    top: -7px;
 }
-.header .call {
+.header div input:checked ~ .toggle {
+    background: transparent;
+}
+.header div input:checked ~ .toggle::after {
+    top: 0;
+    transform: rotate(-45deg);
+    width: 30px;
+}
+.header div input:checked ~ .toggle::before {
+    top: 0;
+    transform: rotate(45deg);
+    width: 30px;
+}
+.header div .check {
+    position: absolute;
+    z-index: 4;
+    opacity: 0;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+.header div input:checked ~ .menu ul{
+    right: 0;
+    box-shadow: -20px 0 40px rgba(0, 0, 0, 0.3);
+}
+.header div .toggle,
+.header div .check {
+    display: none;
+    }
+.header div .menu ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    width: 22%;
+    flex-direction: row;
+    margin-right: 90px;
+    z-index: 2;
 }
-.call span {
-    color: var(--primary);
-    font-size: 19px;
-    font-weight: 600;
-} 
-.call p a {
+.menu li {
+    list-style: none;
+}
+.menu li a {
+    display: block;
     text-decoration: none;
-    color: var(--defaultLinkColor);
+    padding: 20px 25px;
+    font-size: 15px;
     font-weight: 500;
-    font-size: 18px;
+    color: var(--muted);
+    line-height: 1;
+}
+.menu li a[id ="button"] {
+    background-color: var(--primary);
+    height: 10px;
+    width: 70px;
+    font-size: 15px;
+    color: var(--white);
+    border-radius: 10px;
+    text-align: center;
+    align-content: center;
+}
+.menu li a:hover {
+    box-shadow : 0 -5px 0px var(--primary) inset;
+    color: var(--primary);
+    padding: 35px 25px 45px 25px; 
+}
+.menu li a[id ="button"]:hover {
+    color: var(--defaultLinkColor);
+    padding: 25px; 
+    background-color: var(--yellow);
+    box-shadow: none;
 }
 /*WELCOME*/
 .welcome .wel-contain {
     display: flex;
     justify-content: space-between;
     width: 92%;
-    margin:7% 80px 4% 80px;
+    margin:15% 80px 4% 80px;
 }
 .wel-left {
     margin-top: 30px;
@@ -134,10 +184,10 @@ button a:hover {
     text-align: start;
     width: 55%;
 }
-.wel-left h1.title-me{
+.wel-left .title-me{
     font-size: 50px;
 }
-.wel-left h1.title-me span{
+.wel-left .title-me span{
     font-size: 50px;
     color: var(--yellow);
 }
@@ -315,7 +365,7 @@ button a:hover {
     flex-direction: column;
     background-color: var(--silver);
     align-items: center;
-    border-radius: 15px;
+    border-radius: 7px;
     padding: 20px;
     border: 2px solid var(--silver2);
     gap: 25PX;
@@ -333,6 +383,7 @@ button a:hover {
     font-size: 15px;
     line-height: normal;
     text-align: center;
+    color: var(--muted);
 }
 /*SMILE*/
 .smile {
@@ -380,7 +431,7 @@ button a:hover {
     background-color: var(--white);
     width: 100%;
 }
-.title-hist {
+.title-hist .title-two {
     font-size: 50px;
     font-weight: 600;
     width: 100%;
@@ -400,7 +451,6 @@ button a:hover {
 }
 .history .hist-contain {
     display: flex;
-    margin: 70px 0px;
     justify-content: space-between;
     width: 92%;
     margin: 3% 80px;
@@ -412,7 +462,7 @@ button a:hover {
 .hist-left img {
     width: 450px;
     height: 300px;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 .hist-contain .hist-right {
     width: 70%;
@@ -424,7 +474,7 @@ button a:hover {
     text-align: start;
     border: 1px solid var(--silver);
     background-color: var(--silver);
-    border-radius: 30px;
+    border-radius: 10px;
     width: 480px;
     height: 250px;
     margin-left:  90px;
@@ -447,7 +497,7 @@ button a:hover {
     width: 100%;
     background-color: var(--white);
 }
-.title-meet {
+.title-meet .title-two{
     font-size: 50px;
     font-weight: 600;
     width: 100%;
@@ -877,123 +927,503 @@ button a:hover {
     font-size: 14px;
     font-weight: 300;
 }
-.login {
-    display: flex;
-    justify-content: space-between;
-    height: calc(100vh - 120px);
-    background-color: var(--whiteBG);
-    position: relative;
-    z-index: 1;
-}
-.login::after {
-    position: absolute;
-    content: "";
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-image: url(../images/photos/home.jpeg);
-    background-size: cover; 
-    opacity: 10%;
-}
-.login .log-left {
-    z-index: 2;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    gap: 30px;
-    margin-left: 80px;
-    margin-top: 20px;
-    width: 40%;
-}
-.log-left h1 {
-    margin: 0;
-    font-size: 40px;
-}
-.log-left h1 span {
-    color: var(--yellow);
-}
-.log-left .connect {
-    display: flex;
-    flex-direction: column;
-}
-.connect label {
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-.connect input {
-    width: 95%;
-    height: 20px;
-    border-radius: 8px;
-    border: 2px solid var(--silver2);
-    background: var(--silver);
-    padding: 10px;
-    margin-bottom: 17px;
-}
-.connect button {
-    margin-top: 10px;
-    width: 100%;
-    height: 40px;
-    border-radius: 8px;
-    border: none;
-    background: var(--primary);
-    padding: 5px;
-    color: var(--white);
-    font-size: 14px;
-    font-family: 'Inter' ;
-}
-.connect p {
-    font-size: 12px;
-    text-align: end;
-    margin-top: 5px;
-    font-weight: 500;
-}
-.connect p a {
-    color: var(--primary);
-}
-.login .log-right {
-    width: 50%;
-    z-index: 2;
-}
-.log-right div {
-    display: flex;
-    flex-direction: column;
-    margin: 90px;
-    margin-bottom: 0;
-    background-color: var(--primary);
-    border-radius: 20px;
-    color: var(--white);
-    padding: 40px 50px;
-    gap: 20px;
-}
-.log-right div img {
-    width: 180px;
-    height: 40px;
-    filter:brightness(0) invert(1);
-    margin: auto;
-}
-.log-right div p {
-    font-size: 12px;
-    line-height: 25Px;
-    text-align: center;
-}
-.log-right div .button {
-    margin: 0;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    width: 40%;
-    background-color: var(--white);
-    height: 50px;
-    padding: 0;
-    border-radius: 5px;
-    place-self: center;
-}
-.button a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 600 ;
-    place-self: center;
-    font-size: 19px;
+
+
+/*reponsive*/
+@media (350px<= width <= 600px) {
+    body {
+        background-color: var(--silver);
+    }
+    .container {
+        width: 98%;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 0px 3px 1px var(--silver2);
+        padding: 0;
+        position: relative;
+    }
+    header.header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 60px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        background-color: var(--white);
+    }
+    header.header::after {
+        display: flex;
+        margin-top: 60px;
+        left: 0;
+        width: 99%;
+    }
+    .header div .toggle,
+    .header div .check {
+        display: block;
+        margin-right: 20px;
+    }
+    .header div .menu ul  {
+        justify-content: start;
+        align-items: center;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -150px;
+        background-color: var(--white);
+        margin: 0;
+        padding-top: 60px;
+        height: 300px;
+        width: 150px;
+        gap: 20PX;
+    }
+    .menu li {
+        width: 100%; 
+    }
+    .menu li a,
+    .menu li a[id ="button"] {
+        padding: 10px 5px;
+        font-size: 13px;
+        text-align: center;
+        align-content: center;
+        background: none;
+        color: #000000;
+        width: 100%;
+        border-radius: 0;
+    }
+    .menu li a:hover,
+    .menu li a[id ="button"]:hover {
+        padding: 5px 0;
+        box-shadow: none;
+        color: var(--primary);
+        background-color: var(--yellow);
+    }
+    header.header img {
+        display: flex;
+        width: 120px;
+        max-width: 200px;
+        margin-left: 20px;
+    }
+    .welcome .wel-contain{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin: 20px;
+        margin-top: 40px;
+    }
+    .wel-left {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    } 
+    .wel-left .title-me{
+        font-size: 35px;
+    }
+    .wel-left .title-me span{
+        font-size: 35px;
+    }
+    .wel-left p {
+        display: flex;
+        margin: 20px 0px;
+        line-height: 20px;
+        font-size: 13px;
+    }
+    .wel-left button {
+        width: 200px;
+        font-size: 13px;
+        height: 40px;
+        border-radius: 5px;
+    }
+    .wel-right {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin: 30px 0px;
+    }
+    .wel-right img {
+        width: 300px;
+        height: 200px;
+        border-radius: 20px;
+        margin: 0;
+    }
+    .service-blue {
+        flex-direction: column;
+        justify-content: center;
+        padding: 20PX 20px 50px 20px;
+        gap: 30PX;
+    }
+    .service-blue .serv-left{
+        width: 90%;
+        text-align: center;
+        line-height: 35px;
+    }
+    .service-blue .serv-left h3 {
+        font-size: 25px;
+    }
+    .service-blue .serv-left p {
+        font-size: 15px;
+        margin: 0;
+    }
+    .service-blue .serv-right {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .serv-right .get-service {
+        width: 100px;
+        height: 90px;
+        font-size: 10px;
+        line-height: 14px;
+    }
+    .serv-right .get-service img {
+        height: 25px;
+        width: 25px;
+    }
+    .services .provide {
+        flex-direction: column;
+        justify-content: start;
+        width: 100%;
+    }
+    .provide .provide-left {
+        display: flex;
+        width: 100%;
+        padding: 0;
+        justify-content: right;
+        height: 220px;
+    }
+    .provide .provide-left img {
+        width: 300px;
+        height:200px;
+    }
+    .provide .provide-right {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .provide-right .prov-apercu {
+        width:90%;
+        gap: 5PX;
+        margin:0px 20px;
+    }
+    .prov-apercu .gird-prov {
+        display: flex;
+        width: 180px;
+    }
+    .prov-apercu .gird-prov img {
+        height: 17px;
+        width: 18px;
+    }
+    .prov-apercu .gird-prov p {
+        margin-left: 10px;
+        margin-top: 0;
+        font-size: 12px;
+    }
+    .title-sp .title-two {
+        font-size: 25px;
+        font-weight: 700;
+    }
+    .title-sp .title-two span::after {
+        margin-top: 50px;
+        left: 0;
+        width: 100%;
+    }
+    .special .sp-purpose {
+        margin: 20px;
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        height: auto;
+        gap: 20PX;
+        width: 90%;
+        align-items: stretch;
+    }
+    .sp-purpose .sp-column {
+        display: flex;
+        gap: 10PX;
+        padding: 20px;
+    }
+    .sp-column img {
+        max-width: 90px;
+        width: 50px;
+        height: 40px;
+    }
+    .sp-column h3{
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .sp-column p {
+        font-size: 9px;
+    }
+    .title-hist .title-two {
+        font-size: 25px;
+        font-weight: 700;
+    }
+    .title-hist .title-two span::after {
+        margin-top: 35px;
+        left: 0;
+        width: 99%;
+    }
+    .title-meet .title-two {
+        font-size: 25px;
+        font-weight: 700;
+    }
+    .title-meet .title-two span::after {
+        margin-top: 40px;
+        left: 0;
+        width: 99%;
+    }
+    .history .hist-contain {
+        flex-direction: column;
+        margin: 20px;
+        margin-top: 30PX;
+    }
+    .hist-contain .hist-left {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    .hist-left img {
+        width: 320px;
+        height: 200px;
+    }
+    .hist-contain .hist-right {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .hist-right .hist-about {
+        margin: 0;
+        width:80%;
+        padding: 20px;
+        height: auto;
+    }
+    .hist-about h3 {
+        font-size: 18px;
+    }
+    .hist-about p {
+        font-size: 10px;
+        line-height: 20px;
+    }
+    .meeting {
+        width: 100%;
+    }
+    .meet-doctors {
+        width: 90%;
+        padding: 8% 20px 4% 20px;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        gap: 0PX;
+        margin:20px 20px;
+        padding: 0;
+    }
+    .meet-doctors .doc-picture {
+        line-height: 0;
+        gap: 10PX;
+        height: 130px;
+        width: 90px;
+        border-radius: 5px;
+        margin: 0;
+    }
+    .doc-picture img {
+        width: 60px;
+        height: 60px;
+        margin: 0;
+    }
+    .doc-picture p {
+        font-size: 6px;
+        line-height: 7px;
+    }
+    .doc-picture h3 {
+        font-weight: 400;
+        font-size: 8px;
+    }
+    .doc-picture button {
+        margin: 0;
+        font-size: 6px;
+        width: 50px;
+        height: 15px;
+        border-radius: 3px;
+    }
+    .title-rv {
+        font-size: 25px;
+    }
+    .title-rv .title-two::after{
+        margin-top: 50px;
+        left: 0;
+        width: 99%;
+    }
+    .appointment .make-appoint {
+        width: 90%;
+        margin: 20px;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .make-appoint .appoint-left {
+        display: none;
+    }
+    .make-appoint .appoint-right {
+        width: 100%;
+        margin: 0;
+        display: flex;
+    }
+    .appoint-right #form {
+        width: 100%;
+    }
+    #form .form-perso {
+        width: 100%;
+        gap: 0px;
+        line-height: 0;
+    }
+    .form-perso div {
+        width: 100%;
+    }
+    .form-perso div input {
+        width: 85%;
+        height: 30px;
+        font-size: 10Px;
+        justify-content: center;
+        align-items: center;
+    }
+    .form-perso div select {
+        width: 97%;
+        height: 35px;
+        font-size: 12px;
+    }
+    #form label {
+        font-size: 10px;
+        margin-left: 3px;
+    }
+    #form textarea {
+        width: 93%;
+        height: 100px;
+    }
+    #form input[type="checkbox"] {
+        height: 14px;
+
+        margin: 0;
+    }
+    #form button {
+        width: 98%;
+        font-size: 11px;
+        height: 30px;
+        margin: 10px 0;
+    }
+    .letter {
+        width: 100%;
+        height: 200px;
+        justify-content: center;
+        align-items: center;
+    }
+    .letter .newsletter {
+        width: 90%;
+       height: 90px;
+       padding: 10px 5PX;
+       margin: 0;
+       border-radius: 7px;
+    }
+    .newsletter h1 {
+        font-size: 15px;
+        margin: 0;
+    }
+    .newsletter #subscribe {
+        padding: 0;
+        width: 100%;
+        margin-top: 20px;
+    }
+    #subscribe input {
+        width: 80px;
+        height: 15px;
+        font-size: 10px;
+    }
+    #subscribe button {
+        width: 100px;
+        height: 24px;
+        font-size: 9px;
+        border-radius: 5px;
+    }
+    .visit {
+        height: 100px;
+        width: 100%;
+    }
+    .visit .visit-contain{
+        margin: 10px;
+        height: auto;
+        align-items: stretch;
+    }
+    .visit-contain .visit-1 {
+        margin: 0;
+        padding: 0;
+        width: 80px;
+        height: auto;
+    }
+    .visit-1 img {
+        width: 40px;
+        height: 10px;
+        margin-bottom: 10px;
+    }
+    .visit-1 p {
+        font-size: 4px;
+        height: 25px;
+        line-height: 8px;
+        width:70px;
+    }
+    .visit-contain .visit-2 {
+        margin: 0;
+        padding: 0;
+        width: 80px;
+        height: auto;
+    }
+    .visit-2 p {
+        font-size: 5px;
+    }
+    .visit-2 h1 {
+        margin: 10px 10px 10px 0px;
+        font-size: 10px;
+        width: auto;
+    }
+    .visit-contain .visit-3 {
+        margin: 0;
+        padding: 0;
+        width: 80px;
+        height: auto;
+        gap: 5PX;
+    }
+    .visit-3 p {
+        font-size: 7px;
+        margin-bottom: 15px;
+    } 
+    .visit-3 .page {
+        gap: 10px;
+    }
+    .visit-3 .page p {
+        font-size: 4px;
+    }
+    .visit-contain .visit-4 {
+        margin: 0;
+        padding: 0;
+        width: 80px;
+        height: auto;
+        line-height: 12px;
+        gap: 5PX;
+    }
+    .visit-4 h4 {
+        font-size: 6px;
+    }
+    .visit-4 p {
+        font-size: 5px;
+    }
+    .footer {
+        height: 20px;
+    }
+    .footer p {
+        font-size: 5px;
+    }
 }

@@ -1,0 +1,510 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+    --primary: #516eff;
+    --lightprimary: #216583;
+    --white: #ffffff;
+    --silver: #f6f6f8;
+    --silver2: #cdcecf;
+    --defaultLinkColor: #333;
+    --yellow: #FFD700;
+    --muted: #8d8d93;
+    --whiteBG: #F8FAFC;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--silver2);
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-family: "Inter", sans-serif;
+    background-color: var(--white);
+    margin: 5px;
+}
+header.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 85px;
+    width: 88%;
+    padding: 0 80px;
+}
+header.header::after {
+    position: absolute;
+    content: "";
+    width: 99%;
+    padding: 2px;
+    background-color: var(--silver2);
+    margin-top: 80px;
+    left: 5px;
+    z-index: 1;
+}
+header.header img {
+    max-width: 20%;
+    width: 180px;
+}
+.header div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header div .toggle {
+    display: flex;
+    position: relative;
+    width: 20px;
+    height: 2px;
+    background-color: var(--defaultLinkColor);
+    cursor: pointer;
+    z-index: 3;
+}
+.toggle::after, 
+.toggle::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: var(--defaultLinkColor);
+    width: 30px;
+    cursor: pointer;
+    z-index: 3;
+    left: -10px;
+}
+.toggle::after {
+    top: 7px;
+}
+.toggle::before {
+    top: -7px;
+}
+.header div input:checked ~ .toggle {
+    background: transparent;
+}
+.header div input:checked ~ .toggle::after {
+    top: 0;
+    transform: rotate(-45deg);
+    width: 30px;
+}
+.header div input:checked ~ .toggle::before {
+    top: 0;
+    transform: rotate(45deg);
+    width: 30px;
+}
+.header div .check {
+    position: absolute;
+    z-index: 4;
+    opacity: 0;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+.header div input:checked ~ .menu ul{
+    right: 0;
+    box-shadow: -20px 0 40px rgba(0, 0, 0, 0.3);
+}
+.header div .toggle,
+.header div .check {
+    display: none;
+    }
+.header div .menu ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    z-index: 2;
+}
+.menu li {
+    list-style: none;
+}
+.menu li a {
+    display: block;
+    text-decoration: none;
+    padding: 20px 25px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--muted);
+    line-height: 1;
+}
+.menu li a[id ="button"] {
+    background-color: var(--primary);
+    height: 10px;
+    width: 70px;
+    font-size: 15px;
+    color: var(--white);
+    border-radius: 10px;
+    text-align: center;
+    align-content: center;
+}
+.menu li a:hover {
+    box-shadow : 0 -5px 0px var(--primary) inset;
+    color: var(--primary);
+    padding: 35px 25px 25px 20px; 
+}
+.menu li a[id ="button"]:hover {
+    color: var(--defaultLinkColor);
+    padding: 25px; 
+    background-color: var(--yellow);
+    box-shadow: none;
+}
+.login {
+    display: flex;
+    justify-content: space-between;
+    height: calc(100vh - 95px);
+    background-color: var(--whiteBG);
+    position: relative;
+    z-index: 1;
+}
+.login::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url(../images/photos/home.jpeg);
+    background-size: cover; 
+    opacity: 10%;
+}
+.login .log-left {
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 30px;
+    margin-left: 80px;
+    margin-top: 20px;
+    width: 40%;
+}
+.log-left h1 {
+    margin: 0;
+    font-size: 40px;
+}
+.log-left h1 span {
+    color: var(--yellow);
+}
+.log-left .connect {
+    display: flex;
+    flex-direction: column;
+}
+.connect label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.connect input {
+    width: 98%;
+    height: 20px;
+    border-radius: 8px;
+    border: 2px solid var(--silver2);
+    background: var(--silver);
+    padding: 10px;
+    margin-bottom: 17px;
+}
+.connect button {
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    background: var(--primary);
+    padding: 5px;
+    color: var(--white);
+    font-size: 14px;
+    font-family: 'Inter' ;
+}
+.connect p {
+    font-size: 12px;
+    text-align: end;
+    margin-top: 5px;
+    font-weight: 500;
+}
+.connect p a {
+    color: var(--primary);
+    font-weight: 700;
+}
+.login .log-right {
+    width: 50%;
+    z-index: 2;
+}
+.log-right div {
+    display: flex;
+    flex-direction: column;
+    margin: 90px;
+    margin-bottom: 0;
+    background-color: var(--primary);
+    border-radius: 20px;
+    color: var(--white);
+    padding: 40px 50px;
+    gap: 20px;
+}
+.log-right div img {
+    width: 180px;
+    height: 40px;
+    filter:brightness(0) invert(1);
+    margin: auto;
+}
+.log-right div p {
+    font-size: 12px;
+    line-height: 25Px;
+    text-align: center;
+    width: auto;
+}
+.log-right div .button {
+    margin: 0;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 40%;
+    background-color: var(--yellow);
+    height: 50px;
+    padding: 0;
+    border-radius: 5px;
+    place-self: center;
+}
+.button a {
+    color: var(--defaultLinkColor);
+    font-weight: 600 ;
+    place-self: center;
+    font-size: 15px;
+}
+.footer {
+    display: flex;
+    background-color: var(--lightprimary);
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    width: 100%;
+}
+.footer p {
+    font-size: 14px;
+    font-weight: 300;
+}
+.footer {
+    display: none;
+}
+/*reponsive*/
+@media (350px<= width <= 600px) {
+    body {
+        background-color: var(--silver);
+    }
+    .container {
+        width: 98%;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 0px 3px 1px var(--silver2);
+        padding: 0;
+        position: relative;
+    }
+    header.header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 70px;
+    }
+    header.header::after {
+        display: flex;
+        margin-top: 70px;
+        left: 0;
+        width: 99%;
+    }
+    .header div .menu ul  {
+        justify-content: start;
+        align-items: center;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -150px;
+        background-color: var(--white);
+        margin: 0;
+        padding-top: 60px;
+        height: 300px;
+        width: 150px;
+        gap: 20PX;
+    }
+    .header div .toggle,
+    .header div .check {
+    display: block;
+    margin-right: 20px;
+    }
+    .menu li {
+        width: 100%; 
+    }
+    .menu li a,
+    .menu li a[id ="button"] {
+        padding: 10px 5px;
+        font-size: 13px;
+        text-align: center;
+        align-content: center;
+        background: none;
+        color: #000000;
+        width: 100%;
+        border-radius: 0;
+    }
+    .menu li a:hover,
+    .menu li a[id ="button"]:hover {
+        padding: 5px 0;
+        box-shadow: none;
+        color: var(--primary);
+        background-color: var(--yellow);
+    }
+    header.header img {
+        display: flex;
+        width: 120px;
+        max-width: 200px;
+        margin-left: 20px;
+    }
+    .login {
+        width: 100%;
+        background-color: var(--white);
+        display: flex;
+        flex-direction: column;
+         height: calc(100vh - 80px);
+    }
+    .login::after {
+        display: none;
+    }
+    .login .log-left {
+        width: 86%;
+        margin: 0;
+        padding: 0px 0px 0px 20px;
+    }
+    .log-left .connect {
+        width: 100%;
+    }
+    .log-left h1 {
+        margin: 10PX 0;
+        font-size: 35px;
+        text-align: center;
+    }
+    .connect label {
+        font-size: 11px;
+    }
+    .connect input{
+        background: none;
+        padding: 5px;
+        font-size: 11px;
+        border-radius: 5px;
+        border: 1px solid var(--silver2);
+        margin-bottom: 30px;
+    }
+    .connect button {
+        margin: 0;
+        font-size: 11px;
+    }
+    .connect p {
+        font-size: 10px;
+    }
+    .login .log-right {
+        display: none;
+    }
+    .footer {
+        display: flex;
+        background-color: var(--lightprimary);
+        height: 20px;
+        color: var(--white);
+        width: 100%;
+        text-align: center;
+        align-content: center;
+        bottom: 0;
+    }
+    .footer p {
+        font-size: 6px;
+        font-weight: 300;
+    }
+}
+@media (600px< width <= 1000px) {
+    body {
+        background-color: var(--silver);
+    }
+    .container {
+        width: 98%;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 0px 3px 1px var(--silver2);
+        padding: 0;
+        position: relative;
+    }
+    header.header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0 40px;
+        width: 88%;
+        height: 75px;
+    }
+    header.header::after {
+        display: flex;
+        margin-top: 70px;
+        left: 0;
+        width: 99.6%;
+    }
+    header.header img {
+        display: flex;
+        width: 150px;
+        max-width: 200px;
+        margin-left: 20px;
+    }
+    .login {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+         height: calc(100vh - 90px);
+    }
+    .login .log-left {
+        width: 83%;
+        margin: 0;
+        height: calc(100vh - 120px);
+        padding: 20px 70px 0px 70px;
+    }
+    .log-left h1 {
+        margin: 0;
+        font-size: 45px;
+        text-align: center;
+    }
+    .connect input{
+        background: var(--white);
+        padding: 5px;
+        font-size: 13px;
+        border-radius: 5px;
+        margin-bottom: 25px;
+    }
+    .connect label {
+        font-size: 15px;
+    }
+    .connect button {
+        margin: 0;
+        font-size: 15px;
+    }
+    .footer {
+        display: block;
+    }
+    .login .log-right {
+        display: none;
+    }
+    .footer {
+        display: flex;
+        background-color: var(--lightprimary);
+        height: 25px;
+        color: var(--white);
+        width: 100%;
+        text-align: center;
+        align-content: center;
+        bottom: 0;
+    }
+    .footer p {
+        font-size: 11px;
+        font-weight: 300;
+    }
+}
