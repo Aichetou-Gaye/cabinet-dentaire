@@ -1297,9 +1297,6 @@ header.header img {
         justify-content: center;
         align-items: center;
     }
-    .form-perso div input[type="date"] {
-        width: 170px;
-    }
     .form-perso div select {
         width: 97%;
         height: 36px;
@@ -1769,9 +1766,6 @@ header.header img {
         font-size: 12Px;
         justify-content: center;
         align-items: center;
-    }
-    .form-perso div input[type="date"] {
-        width: 90%;
     }
     .form-perso div select {
         width: 97%;
