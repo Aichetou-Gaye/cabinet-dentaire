@@ -486,6 +486,7 @@ header.header img {
     .connect button {
         margin: 0;
         font-size: 15px;
+        cursor: pointer;
     }
     .footer {
         display: block;

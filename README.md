@@ -2,9 +2,13 @@
 
 Un cabinet dentaire local spécialisé dans les solutions dentaires souhaite avoir un site web professionnel pour faire connaître ses activités et permettre aux utilisateurs de le contacter sans avoir à se déplacer.
 
-Pour cela, il a fait appel à un UX designer pour la réalisation d’une maquette.
+Pour cela, il a fait appel à un UX designer pour la réalisation d’une maquette d'un site préalablement réalisé.
 
-​En tant que développeur frontend, le cabinet m'a sollicite pour la réalisation dudit site web à partir de la maquette.
+​En tant que développeur frontend et designer : 
+- J'ai apportée les modifications sur la maquette figma;
+- Réalisée une maquette en version mobile;
+- Ajouter des pages LogIn et SignUp en version desktop et mobile;
+- Deployer le site web sur github.
 
 ## Table de matières
  Vous aurez sur le site :
@@ -16,11 +20,12 @@ Pour cela, il a fait appel à un UX designer pour la réalisation d’une maquet
 - L'avis de leur prcédents clients; 
 - Une partie pour prendre rendez vous;
 - Si vous le souhaitez, une inscription à leur newsletter;
-- Les horaires de visites;    
+- Les horaires de visites;   
+- Et une page d'insription et de connexion 
 
 ## Exigences
 
-Ce projet nécessite des compétences en HTML/CSS FLEXBOX/CSS GRID.
+Ce projet nécessite des compétences en HTML/CSS FLEXBOX/CSS GRID/GITHUB.
 
 ## Réalisation
 
