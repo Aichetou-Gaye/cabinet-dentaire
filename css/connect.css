@@ -185,11 +185,11 @@ header.header img {
     margin-top: 20px;
     width: 40%;
 }
-.log-left h1 {
+.log-left h2 {
     margin: 0;
     font-size: 40px;
 }
-.log-left h1 span {
+.log-left h2 span {
     color: var(--yellow);
 }
 .log-left .connect {
@@ -383,7 +383,7 @@ header.header img {
     .log-left .connect {
         width: 100%;
     }
-    .log-left h1 {
+    .log-left h2 {
         margin: 10PX 0;
         font-size: 35px;
         text-align: center;
@@ -468,7 +468,7 @@ header.header img {
         height: calc(100vh - 120px);
         padding: 20px 70px 0px 70px;
     }
-    .log-left h1 {
+    .log-left h2 {
         margin: 0;
         font-size: 45px;
         text-align: center;
